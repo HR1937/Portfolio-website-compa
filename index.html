@@ -128,16 +128,18 @@
             width: 100%;
             height: 100vh;
             background: var(--bg-primary);
-            z-index: 999;
+            z-index: 1001;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transform: translateY(-100%);
             transition: all 0.4s ease;
+            display: none;
         }
         
         .mobile-menu.active {
+            display: flex !important;
             opacity: 1;
             transform: translateY(0);
         }
@@ -172,16 +174,18 @@
             color: var(--text-primary);
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 1002;
         }
         
-        .mobile-menu-btn {
+            .mobile-menu-btn {
             display: none;
             background: transparent;
             border: none;
             color: var(--text-primary);
             font-size: 1.5rem;
             cursor: pointer;
-            z-index: 1001;
+            z-index: 1002;
+            position: relative;
         }
         
         .hero {
@@ -202,11 +206,13 @@
             max-width: none;
             display: flex;
             align-items: center;
-            gap: 4rem;
+            justify-content: center;
+            gap: 8rem;
+            margin-left: 3rem;
         }
         
         .profile-image {
-            flex-shrink: 0;
+            /* flex-shrink: 0; */
             width: 280px;
             height: 280px;
             border-radius: 50%;
@@ -725,6 +731,10 @@
             .mobile-menu-btn {
                 display: block;
             }
+
+            .mobile-menu {
+                display: flex;
+            }
             
             .hero {
                 padding: 6rem 5% 3rem;
@@ -735,6 +745,7 @@
             }
             
             .hero-content {
+                margin: auto;
                 flex-direction: column;
                 text-align: center;
                 gap: 2rem;
