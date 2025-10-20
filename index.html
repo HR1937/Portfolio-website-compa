@@ -34,7 +34,6 @@
             overflow-x: hidden;
         }
         
-        /* Subtle Background Pattern */
         body::before {
             content: '';
             position: fixed;
@@ -49,7 +48,6 @@
             pointer-events: none;
         }
         
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -122,7 +120,6 @@
             width: 100%;
         }
         
-        /* Mobile Menu */
         .mobile-menu {
             display: none;
             position: fixed;
@@ -187,7 +184,6 @@
             z-index: 1001;
         }
         
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -203,7 +199,36 @@
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: none;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .profile-image {
+            flex-shrink: 0;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-primary);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            opacity: 0;
+            animation: fadeInUp 0.8s 0.1s forwards;
+        }
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.5);
+        }
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: -27px 3px;
+        }
+        
+        .hero-text {
+            flex: 1;
         }
         
         .hero-tag {
@@ -217,7 +242,7 @@
             font-weight: 500;
             margin-bottom: 2rem;
             opacity: 0;
-            animation: fadeInUp 0.8s 0.2s forwards;
+            animation: fadeInUp 0.8s 0.3s forwards;
         }
         
         @keyframes fadeInUp {
@@ -238,7 +263,7 @@
             margin-bottom: 1.5rem;
             line-height: 1.1;
             opacity: 0;
-            animation: fadeInUp 0.8s 0.4s forwards;
+            animation: fadeInUp 0.8s 0.5s forwards;
         }
         
         .hero h1 .highlight {
@@ -254,7 +279,7 @@
             margin-bottom: 2rem;
             font-weight: 400;
             opacity: 0;
-            animation: fadeInUp 0.8s 0.6s forwards;
+            animation: fadeInUp 0.8s 0.7s forwards;
         }
         
         .hero-description {
@@ -264,7 +289,7 @@
             max-width: 700px;
             line-height: 1.8;
             opacity: 0;
-            animation: fadeInUp 0.8s 0.8s forwards;
+            animation: fadeInUp 0.8s 0.9s forwards;
         }
         
         .cta-buttons {
@@ -272,7 +297,7 @@
             gap: 1.5rem;
             flex-wrap: wrap;
             opacity: 0;
-            animation: fadeInUp 0.8s 1s forwards;
+            animation: fadeInUp 0.8s 1.1s forwards;
         }
         
         .btn {
@@ -312,7 +337,6 @@
             background: rgba(59, 130, 246, 0.1);
         }
         
-        /* Section Styles */
         section {
             padding: 6rem 5%;
             max-width: 1400px;
@@ -337,7 +361,6 @@
             line-height: 1.8;
         }
         
-        /* About Section */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -384,7 +407,6 @@
             margin-top: 0.5rem;
         }
         
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -433,7 +455,6 @@
             font-weight: 500;
         }
         
-        /* Projects Section */
         .projects-grid {
             display: grid;
             gap: 2rem;
@@ -535,7 +556,6 @@
             font-weight: 500;
         }
         
-        /* Experience Section */
         .experience-timeline {
             position: relative;
             padding-left: 2rem;
@@ -630,7 +650,6 @@
             color: var(--accent-primary);
         }
         
-        /* Contact Section */
         .contact-container {
             max-width: 600px;
             margin: 0 auto;
@@ -667,7 +686,6 @@
             box-shadow: 0 10px 30px var(--shadow);
         }
         
-        /* Footer */
         footer {
             padding: 3rem 5%;
             border-top: 1px solid var(--border);
@@ -679,7 +697,6 @@
             font-size: 0.9rem;
         }
         
-        /* Scroll Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -690,8 +707,11 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.5);
+        }
         
-        /* Responsive */
         @media (max-width: 968px) {
             .about-grid {
                 grid-template-columns: 1fr;
@@ -713,6 +733,21 @@
             section {
                 padding: 4rem 5%;
             }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .profile-image {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .profile-image img {
+                object-position: -19px 4px;
+            }
         }
         
         @media (max-width: 640px) {
@@ -727,6 +762,14 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+            
+            .profile-image {
+                width: 180px;
+                height: 180px;
+            }
+            .profile-image img {
+                object-position: -16px 4px;
             }
         }
     </style>
@@ -749,7 +792,6 @@
         </div>
     </nav>
     
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <button class="close-menu" id="closeMenu">
             <i class="fas fa-times"></i>
@@ -767,20 +809,25 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-tag">👋 B.Tech IT Student | CPI: 9.63</div>
-                <h1>Hi, I'm <span class="highlight">Hetvi Purohit</span></h1>
-                <p class="hero-subtitle">Full-Stack Developer building scalable solutions</p>
-                <p class="hero-description">
-                    Second-year Information Technology student at Dharmsinh Desai University with hands-on experience in full-stack development, system design, and competitive programming. 
-                    Passionate about solving real-world problems through clean code and innovative solutions.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-code"></i> View Projects
-                    </a>
-                    <a href="https://hetvi-purohit-resume-compa.vercel.app/" target="_blank" class="btn btn-secondary">
-                        <i class="fas fa-file-alt"></i> Resume
-                    </a>
+                <div class="profile-image">
+                    <img src="Me2.jpg" alt="Hetvi Purohit" class="img">
+                </div>
+                <div class="hero-text">
+                    <div class="hero-tag">👋 B.Tech IT Student | CPI: 9.63</div>
+                    <h1>Hi, I'm <span class="highlight">Hetvi Purohit</span></h1>
+                    <p class="hero-subtitle">Full-Stack Developer & Problem Solver</p>
+                    <p class="hero-description">
+                        Passionate about building scalable solutions and solving complex problems through clean code. 
+                        Experienced in full-stack development, system design, and competitive programming.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-code"></i> View Projects
+                        </a>
+                        <a href="https://hetvi-purohit-resume-compa.vercel.app/" target="_blank" class="btn btn-secondary">
+                            <i class="fas fa-file-alt"></i> Resume
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -794,22 +841,22 @@
         <div class="about-grid">
             <div class="about-content fade-in">
                 <p>
-                    I'm a second-year Information Technology student at Dharmsinh Desai University, where I'm building a 
-                    strong foundation in computer science fundamentals while actively applying them to real-world projects.
+                    I'm pursuing Information Technology at Dharmsinh Desai University, building a strong foundation 
+                    in computer science fundamentals while actively applying them to real-world challenges.
                 </p>
                 <p>
-                    My journey in tech began with curiosity about how systems work behind the scenes. This curiosity evolved 
-                    into participating in multiple national-level hackathons, where I learned to build production-ready 
-                    solutions under tight deadlines while collaborating with cross-functional teams.
+                    My journey in tech began with curiosity about system architectures, evolving into building 
+                    production-ready solutions during national-level hackathons. I thrive in collaborative environments 
+                    and enjoy solving complex problems under tight deadlines.
                 </p>
                 <p>
                     Beyond academics, I serve as a Junior Associate at the Computer Society of India (CSI) Student Chapter, 
-                    where I coordinate technical events and seminars. I'm also actively solving problems on competitive 
-                    programming platforms like LeetCode and CodeChef to strengthen my algorithmic thinking.
+                    coordinating technical events and seminars. I'm also actively solving problems on competitive 
+                    programming platforms to strengthen my algorithmic thinking.
                 </p>
                 <p>
                     I'm particularly interested in backend systems, distributed computing, and building products that have 
-                    measurable impact.
+                    measurable impact on users.
                 </p>
             </div>
             
@@ -827,8 +874,8 @@
                     <div class="stat-label">Tech Stacks</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">DDU</div>
-                    <div class="stat-label">University</div>
+                    <div class="stat-number">9.63</div>
+                    <div class="stat-label">Current CPI</div>
                 </div>
             </div>
         </div>
@@ -838,7 +885,7 @@
         <div class="section-header fade-in">
             <h2 class="section-title">Skills & Technologies</h2>
             <p class="section-description">
-                Core competencies in full-stack development, data structures, and problem-solving
+                Core competencies in full-stack development, data structures, and system design
             </p>
         </div>
         
@@ -935,13 +982,13 @@
                     </div>
                     
                     <p class="project-description">
-                        Analytics platform designed for Indian Railways to detect and analyze operational delays in real-time. 
-                        Integrated machine learning models to perform root cause analysis and built a comprehensive KPI dashboard for actionable insights.
+                        Analytics platform for Indian Railways to detect and analyze operational delays in real-time. 
+                        Integrated ML models for root cause analysis and built comprehensive KPI dashboards.
                     </p>
                     
                     <ul class="project-highlights">
-                        <li>Built REST API architecture to integrate ML models for delay prediction and root cause detection</li>
-                        <li>Developed real-time analytics dashboard providing operational efficiency metrics</li>
+                        <li>Built REST API architecture to integrate ML models for delay prediction</li>
+                        <li>Developed real-time analytics dashboard with operational efficiency metrics</li>
                         <li>Implemented data processing pipeline handling railway operations data</li>
                         <li>Selected for Smart India Hackathon 2025 after clearing internal rounds</li>
                     </ul>
@@ -969,12 +1016,12 @@
                     </div>
                     
                     <p class="project-description">
-                        Workflow automation system designed for corporate environments to streamline multi-level bill approval processes. 
-                        Implemented role-based access control and real-time status tracking across organizational hierarchies.
+                        Workflow automation system for corporate environments to streamline multi-level bill approval processes. 
+                        Implemented role-based access control and real-time status tracking.
                     </p>
                     
                     <ul class="project-highlights">
-                        <li>Designed and implemented workflow engine supporting configurable approval sequences</li>
+                        <li>Designed workflow engine supporting configurable approval sequences</li>
                         <li>Built role-based authentication system with permission controls</li>
                         <li>Integrated real-time status tracking with WebSocket-based notifications</li>
                         <li>Implemented MongoDB aggregation pipeline for reporting and analytics</li>
@@ -1004,14 +1051,14 @@
                     
                     <p class="project-description">
                         Real-time queue management solution for hospitals that improved patient flow. 
-                        Built with Firebase for real-time synchronization and integrated emergency contact features for critical cases.
+                        Built with Firebase for real-time synchronization and emergency contact features.
                     </p>
                     
                     <ul class="project-highlights">
-                        <li>Implemented real-time token system using Firebase Realtime Database for instant updates</li>
+                        <li>Implemented real-time token system using Firebase Realtime Database</li>
                         <li>Built wait time estimation algorithm based on queue status</li>
                         <li>Integrated emergency contact feature with automatic notification system</li>
-                        <li>Designed responsive interface optimized for both patients and hospital staff</li>
+                        <li>Designed responsive interface for both patients and hospital staff</li>
                     </ul>
                     
                     <div class="project-footer">
@@ -1036,13 +1083,13 @@
                     </div>
                     
                     <p class="project-description">
-                        Social platform connecting senior citizens with nearby helpers within 500m radius using geolocation services. 
-                        Led frontend development implementing experience sharing features and community knowledge preservation.
+                        Social platform connecting senior citizens with nearby helpers using geolocation services. 
+                        Led frontend development implementing experience sharing and community features.
                     </p>
                     
                     <ul class="project-highlights">
                         <li>Implemented geolocation-based matching algorithm using Haversine formula</li>
-                        <li>Built experience/remedy upload system with categorization and search functionality</li>
+                        <li>Built experience/remedy upload system with categorization and search</li>
                         <li>Designed responsive UI with accessibility features for senior citizens</li>
                         <li>Integrated with Go backend for efficient data handling</li>
                     </ul>
@@ -1115,7 +1162,6 @@
     </footer>
     
     <script>
-        // Mobile Menu Functionality
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mobileMenu = document.getElementById('mobileMenu');
         const closeMenu = document.getElementById('closeMenu');
@@ -1138,7 +1184,6 @@
             });
         });
         
-        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1152,7 +1197,6 @@
             });
         });
         
-        // Nav Scroll Effect
         const nav = document.getElementById('nav');
         
         window.addEventListener('scroll', () => {
@@ -1165,7 +1209,6 @@
             }
         });
         
-        // Intersection Observer for Fade-in Animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1183,7 +1226,6 @@
             observer.observe(el);
         });
         
-        // Parallax Effect on Project Cards
         document.querySelectorAll('.project-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
@@ -1204,7 +1246,6 @@
             });
         });
         
-        // Stat Counter Animation
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1237,7 +1278,6 @@
             statsObserver.observe(statsGrid);
         }
         
-        // Active Nav Link
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-links a');
         
