@@ -491,7 +491,7 @@
 
       .project-card:hover {
         border-color: var(--accent-primary);
-        transform: translateY(-8px);
+        /* transform: translateY(-8px); */
         box-shadow: 0 20px 60px var(--shadow);
       }
 
@@ -1562,12 +1562,14 @@
     </p>
 
   </footer>
- <script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<script>
     document.addEventListener("DOMContentLoaded", () => {
+      
       const observerOptions = {
         root: null,
         rootMargin: "0px",
-        threshold: 0.15
+        threshold: 0.15 
       };
 
       const observer = new IntersectionObserver((entries, observer) => {
@@ -1582,6 +1584,7 @@
       const fadeElements = document.querySelectorAll(".fade-in");
       fadeElements.forEach(el => observer.observe(el));
 
+      
       const mobileBtn = document.querySelector(".mobile-menu-btn");
       const closeBtn = document.getElementById("closeMenu");
       const mobileMenu = document.getElementById("mobileMenu");
@@ -1595,7 +1598,6 @@
         mobileBtn.addEventListener("click", toggleMenu);
         closeBtn.addEventListener("click", toggleMenu);
         
-        // Close menu when a link is clicked
         mobileLinks.forEach(link => {
           link.addEventListener("click", toggleMenu);
         });
@@ -1608,6 +1610,15 @@
         } else {
           nav.classList.remove("scrolled");
         }
+      });
+
+
+      VanillaTilt.init(document.querySelectorAll(".project-card"), {
+        max: 10,           
+        speed: 400,        
+        glare: true,       
+        "max-glare": 0.2,  
+        scale: 1.02        
       });
     });
   </script>
